@@ -62,3 +62,16 @@ export function getNewsInfo(id){
         method: "get"
     });
 };
+export function addAddress(data){
+    return request({
+        url: "/address/save",
+        method: "post",
+        data: data
+    });
+};
+export function getAddressList(){
+    return request({
+        url: "/address",
+        method: "get"
+    });
+};
