@@ -3,6 +3,8 @@ import { defineStore } from 'pinia';
 import { useRoute } from "vue-router";
 
 export const useCounterStore = defineStore('counter', () => {
+  const goodsList = ref([]);
+  const order = ref(false);
   const state = ref(0);
   const count = ref(0);
   const currentRoute = computed(()=>{
@@ -14,6 +16,9 @@ export const useCounterStore = defineStore('counter', () => {
     if(sc){
       shopcart.value = JSON.parse(sc);
     }
+    // shopcart.value.forEach(item=>{
+    //   item["total"] = (eval(item.number) * eval(item.price)).toFixed(2);
+    // })
     // console.log(shopcart.value);
   };
   const setGoodsIntoShopCart = (good) => {
@@ -58,7 +63,15 @@ export const useCounterStore = defineStore('counter', () => {
     // console.log(shopcart.value);
     localStorage.setItem("shopcart", JSON.stringify(shopcart.value));
   }; 
+  const clearShopcart = () => {
+    localStorage.setItem("shopcart", JSON.stringify([]));
+  };
+  const setGoodsList = (list) => {
+    goodsList.value = list;
+  };
   return { 
+    goodsList,
+    order,
     count,
     state,
     currentRoute,
@@ -66,6 +79,8 @@ export const useCounterStore = defineStore('counter', () => {
     initShopCart,
     addGoodIntoShopcart,
     subGoodIntoShopcart,
-    setGoodsIntoShopCart
+    setGoodsIntoShopCart,
+    clearShopcart,
+    setGoodsList
   };
 });

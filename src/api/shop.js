@@ -63,6 +63,7 @@ export function getNewsInfo(id){
     });
 };
 export function addAddress(data){
+    // console.log(data);
     return request({
         url: "/address/save",
         method: "post",
@@ -75,3 +76,66 @@ export function getAddressList(){
         method: "get"
     });
 };
+export function deleteAddress(data){
+    return request({
+        url: "/address/del",
+        method: "post",
+        data: data
+    });
+};
+export function getOrders(){
+    return request({
+        url: "/order/list",
+        method: "get"
+    });
+};
+export function getOrderInfo(data){
+    return request({
+        url: "/order/show?id=" + data,
+        method: "get"
+    });
+};
+export function deleteOrder(data){
+    return request({
+        url: "/order/cancel",
+        method: "post",
+        data: data
+    });
+};
+export function getDefaultAddress(){
+    return request({
+        url: "/address/def",
+        method: "get"
+    });
+};
+export function makeOrder(data){
+    return request({
+        url: "/order/create",
+        method: "post",
+        data: data
+    });
+};
+export function getImageCategory(){
+    return request({
+        url: "/photo/getimgcategory",
+        method: "get"
+    });
+};
+export function getImageList(id){
+    return request({
+        url: "/photo/getimages?id=" + id,
+        method: "get"
+    });
+};
+export function getImageInfo(id){
+    return request({
+        url: "photo/getimageInfo?id=" + id,
+        method: "get"
+    });
+};
+export function getIList(id){
+    return request({
+        url: "/photo/getthumimages?id=" + id,
+        method: "get"
+    });
+}

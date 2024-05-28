@@ -10,9 +10,9 @@
         </div>
         <div class="item">
             <van-cell title="我的收货地址" @click="address" />
-            <van-cell title="我的订单" />
+            <van-cell title="我的订单" @click="orders" />
         </div>
-        <div style="text-align: center;">
+        <div style="text-align: center;padding-top: 225px;padding-bottom: 5px;">
             <van-button type="danger" style="width: 80%;height: 35px;" @click="logout">退出登录</van-button>
         </div>
     </div>
@@ -47,6 +47,10 @@ const getUser = async () => {
 const address = () => {
     store.state = 1;
     router.push("/address");
+};
+const orders = () => {
+    store.state = 1;
+    router.push("/orderss");
 };
 </script>
 

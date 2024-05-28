@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="item flex" v-for="item in list" :key="item" @click="goodsInfo(item.id)">
+        <div class="item flex" v-for="item in list" :key="item" @click="goodsInfo(item)">
             <div style="width: 40%;">
                 <img class="icon" :src="item.image">
             </div>
@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        <button @click="btn">aaa</button>
+        <!-- <button @click="btn">aaa</button> -->
     </div>
 </template>
 
@@ -45,17 +45,18 @@ const getList = async () => {
     });
     // console.log(list);
 };
-const goodsInfo = (id) => {
+const goodsInfo = (item) => {
     router.push({
         name: "商品详情",
         params: {
-            id: id
+            id: item.id,
+            image: item.image
         }
     });
 };
-const btn = () => {
-    console.log(list.value);
-};
+// const btn = () => {
+//     console.log(list.value);
+// };
 </script>
 
 <style scoped>

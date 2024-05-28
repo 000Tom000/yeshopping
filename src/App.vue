@@ -30,9 +30,13 @@ const tabList = [
     icon: "wap-home-o",
     name: "首页"
   }, {
+    Aicon: "wap-home",
+    icon: "wap-home-o",
+    name: "新闻咨询"
+  }, {
     Aicon: "shop",
     icon: "shop-o",
-    name: "分类"
+    name: "商品分类"
   }, {
     Aicon: "cart",
     icon: "cart-o",
@@ -43,7 +47,7 @@ const tabList = [
     name: "我的"
   }
 ];
-const pathList = ["/home", "/kinds", "/shopcart", "/me"];
+const pathList = ["/home", "/news", "/kinds", "/shopcart", "/me"];
 const active = ref(0);
 const store = useCounterStore();
 const state = computed(() => {

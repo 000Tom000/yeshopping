@@ -13,8 +13,13 @@ import GoodsList from '@/components/GoodsList.vue';
 import GoodsInfo from '@/components/GoodsInfo.vue';
 import Register from '@/components/Register.vue';
 import Address from '@/components/Address.vue';
+import Orders from '@/components/Orders.vue';
+import Orderss from '@/components/Orderss.vue';
+import MakeOrder from '@/components/MakeOrder.vue';
+import News from '@/components/News.vue';
+import ImageInfo from '@/components/ImageInfo.vue';
 
-const list0 = ["/home", "/kinds", "/shopcart", "/me"];
+const list0 = ["/home", "/news", "/kinds", "/shopcart", "/me"];
 const router = createRouter({
   // history: createWebHistory(import.meta.env.BASE_URL),
   history: createWebHistory(),
@@ -64,7 +69,7 @@ const router = createRouter({
       name: "商品列表"
     },
     {
-      path: "/goodsInfo/:id",
+      path: "/goodsInfo/:id/:image",
       component: GoodsInfo,
       name: "商品详情"
     },
@@ -77,6 +82,31 @@ const router = createRouter({
       path: "/address",
       component: Address,
       name: "收货地址"
+    },
+    {
+      path: "/orderss",
+      component: Orderss,
+      name: "我的所有订单"
+    },
+    {
+      path: "/orders/:id",
+      component: Orders,
+      name: "订单详情"
+    },
+    {
+      path: "/makeOrder",
+      component: MakeOrder,
+      name: "创建订单"
+    },
+    {
+      path: "/news",
+      component: News,
+      name: "新闻资讯"
+    },
+    {
+      path: "/imageInfo/:id",
+      component: ImageInfo,
+      name: "资讯详情"
     }
   ]
 });

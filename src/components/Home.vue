@@ -18,7 +18,7 @@
         </div>
         <div class="item">
             <van-grid :column-num="2">
-                <van-grid-item v-for="item in two" :key="item" @click="goodsInfo(item.id)">
+                <van-grid-item v-for="item in two" :key="item" @click="goodsInfo(item)">
                     <img class="icon" :src="item.image">
                 </van-grid-item>
             </van-grid>
@@ -76,7 +76,7 @@ const getTwo = async () => {
     two.value = [];
     two.value.push((await getShop(107)).data[0]);
     two.value.push((await getShop(108)).data[0]);
-    // console.log(two.value);
+    console.log(two.value);
 };
 const search = () => {
     store.state = 1;
@@ -101,12 +101,13 @@ const newsInfo = (id) => {
         }
     });
 };
-const goodsInfo = (id) => {
+const goodsInfo = (item) => {
     store.state = 1;
     router.push({
         name: "商品详情",
         params: {
-            id: id
+            id: item.id,
+            image: item.image
         }
     });
 };

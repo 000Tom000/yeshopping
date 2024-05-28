@@ -10,7 +10,7 @@
         </div>
         <div class="item" v-for="item in list" :key="item" v-show="state">
             <van-swipe-cell>
-                <div class="flex" @click="goodsInfo(item.id)">
+                <div class="flex" @click="goodsInfo(item)">
                     <div class="icon">
                         <img class="icon" :src="item.image">
                     </div>
@@ -29,9 +29,10 @@
                 </template>
             </van-swipe-cell>
         </div>
-        <!-- <div class="item flex" v-for="item in list" :key="item" v-show="!state">
-            暂无产品
-        </div> -->
+        <div v-if="list.length == 0"
+            style="background-color: white;margin: 10px 0 -10px;text-align: center;color: gray;font-weight: bold;padding-top: 10px;">
+            暂无商品
+        </div>
     </div>
 </template>
 
@@ -78,22 +79,24 @@ const getList = async () => {
 };
 
 const addGood = (item) => {
-    // console.log(item);
+    console.log(item);
     store.addGoodIntoShopcart({
         id: item.id,
         name: item.name,
         number: 1,
-        image: item.image
+        image: item.image,
+        price: item.price
     });
     // console.log(item.image);
 };
 
-const goodsInfo = (id) => {
+const goodsInfo = (item) => {
     store.state = 1;
     router.push({
         name: "商品详情",
         params: {
-            id: id
+            id: item.id,
+            image: item.image
         }
     });
 };
